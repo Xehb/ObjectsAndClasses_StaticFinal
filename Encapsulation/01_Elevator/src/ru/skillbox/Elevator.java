@@ -30,7 +30,9 @@ public class Elevator {
 
     public void move(int floor) {
         boolean error = (minFloor > floor) | (floor > maxFloor);
-        if (!error) {
+        if (error) {
+             System.out.println("Такого этажа нет!!!");
+        } else {
 
             if (currentFloor < maxFloor & floor > currentFloor) {
                 while (floor > currentFloor) {
@@ -50,8 +52,7 @@ public class Elevator {
             }
 
 
-        } else {
-            System.out.println("Такого этажа нет!!!");
+
         }
     }
 }
