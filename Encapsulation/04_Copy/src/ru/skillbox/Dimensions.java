@@ -4,7 +4,7 @@ public class Dimensions {
     private int length;
     private int width;
     private int height;
-    public int dimensions;
+    public int volume;
 
 
     public Dimensions(int length, int width, int height) {
@@ -38,9 +38,9 @@ public class Dimensions {
 
 
         public int calculateVolume () {
-            this.dimensions = length * width * height;
+            this.volume= length * width * height;
 
-            return  dimensions;
+            return  volume;
         }
 
 
