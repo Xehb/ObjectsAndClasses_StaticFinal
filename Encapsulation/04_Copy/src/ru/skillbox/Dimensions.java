@@ -1,48 +1,53 @@
 package ru.skillbox;
 
 public class Dimensions {
-    private int length;
-    private int width;
-    private int height;
-    public int volume;
+
+    private final int length;
+    private final int width;
+    private final int height;
+    private final int dimensions;
 
 
     public Dimensions(int length, int width, int height) {
         this.length = length;
         this.width = width;
         this.height = height;
+        this.dimensions = length * width * height;
     }
-        public int getLength () {
-            return length;
-        }
 
-        public void setLength ( int length){
-            this.length = length;
-        }
+    public int getLength() {
+        return length;
+    }
 
-        public int getWidth () {
-            return width;
-        }
+    public Dimensions setLength(int length) {
+        return new Dimensions(length, width, height);
+    }
 
-        public void setWidth ( int width){
-            this.width = width;
-        }
+    public int getWidth() {
+        return width;
+    }
 
-        public int getHeight () {
-            return height;
-        }
+    public Dimensions setWidth(int width) {
+        return new Dimensions(length, width, height);
+    }
 
-        public void setHeight ( int height){
-            this.height = height;
-        }
+    public int getHeight() {
+        return height;
+    }
 
+    public Dimensions setHeight(int height) {
+        return new Dimensions(length, width, height);
+    }
 
-        public int calculateVolume () {
-            this.volume= length * width * height;
-
-            return  volume;
-        }
-
-
+    public int getDimensions() {
+        return dimensions;
 
     }
+
+
+}
+
+
+
+
+
