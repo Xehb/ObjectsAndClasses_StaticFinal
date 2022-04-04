@@ -5,14 +5,14 @@ public class Dimensions {
     private final int length;
     private final int width;
     private final int height;
-    private final int dimensions;
+//    private final int dimensions;
 
 
     public Dimensions(int length, int width, int height) {
         this.length = length;
         this.width = width;
         this.height = height;
-        this.dimensions = length * width * height;
+//        this.dimensions = length * width * height;
     }
 
     public int getLength() {
@@ -39,9 +39,10 @@ public class Dimensions {
         return new Dimensions(length, width, height);
     }
 
-    public int getDimensions() {
-        return dimensions;
 
+
+    public int calculateVolume () {
+        return length * width * height;
     }
 
 
