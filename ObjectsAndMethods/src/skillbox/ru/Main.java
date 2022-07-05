@@ -5,7 +5,7 @@ public class Main {
 
 
 
-        Basket vasyaBasket = new Basket();
+       Basket vasyaBasket = new Basket();
         vasyaBasket.add("Молоко", 40, 2, 1.38);
         vasyaBasket.add("Пиво",60,1, 2 );
 
@@ -18,7 +18,7 @@ public class Main {
 
 
         Basket mashaBasket = new Basket("стол",5000,30);
-        System.out.println(Basket.getTotalPriceBasket());
+        System.out.println(Basket.getTotalPriceAllBasket());
         System.out.println(Basket.getTotalCountItems());
         System.out.println(Basket.midlePriceItems());
         System.out.println(Basket.getBasketCount());
