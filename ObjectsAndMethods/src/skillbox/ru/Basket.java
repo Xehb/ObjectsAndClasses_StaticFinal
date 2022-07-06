@@ -29,6 +29,9 @@ public class Basket {
         this.totalPrice = price;
         this.totalWeight = weight;
         allItemsBasket = allItemsBasket + 1;
+        increaseTotalCountAllItems();
+        increaseTotalPriceAllBasket();
+        clear();
     }
 
 
@@ -58,6 +61,7 @@ public class Basket {
         allItemsBasket = allItemsBasket + count;
         increaseTotalCountAllItems();
         increaseTotalPriceAllBasket();
+        clear();
         return allItemsBasket;
 
     }
@@ -74,8 +78,6 @@ public class Basket {
         items = "";
         totalPrice = 0;
         totalWeight = 0;
-        totalPriceAllBasket = 0;
-        totalCountAllItems = 0;
         allItemsBasket = 0;
     }
 
