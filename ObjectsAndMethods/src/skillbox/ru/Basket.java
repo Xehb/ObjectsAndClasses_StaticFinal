@@ -2,20 +2,20 @@ package src.skillbox.ru;
 
 public class Basket {
     private String items = "";
-    private static int totalPrice = 0;
-    private int totalPriceBasket = 0;
-    private static int allItemsBasket = 0;
     private int limit;
     private double totalWeight = 0;
+    private  int totalPrice = 0;
+    private  int allItemsBasket = 0;
+    private static int basketCount = 0;
     private static int totalCountAllItems = 0;
     private static int totalPriceAllBasket = 0;
-    private static int basketCount = 0;
 
 
     public Basket() {
         basketCount = basketCount + 1;
         items = "Список товаров:";
         this.limit = 1000000;
+
     }
 
     public Basket(int limit, int count) {
@@ -53,13 +53,21 @@ public class Basket {
 
         items = items + "\n" + name + " - " +
                 count + " шт.; " + " Цена за шт.(кг):  " + price + " руб. " + " Вес товара: " + weight + "КГ";
-        totalPrice = count * price;
+        totalPrice = totalPrice + count * price;
         totalWeight = totalWeight + count * weight;
-        totalPriceBasket = totalPriceBasket + totalPrice;
         allItemsBasket = allItemsBasket + count;
-        getTotalPriceAllBasket();
-        getTotalCountItems();
-        return totalPriceBasket;
+        increaseTotalCountAllItems();
+        increaseTotalPriceAllBasket();
+        return allItemsBasket;
+
+    }
+    public int increaseTotalCountAllItems(){
+        totalCountAllItems = totalCountAllItems +  allItemsBasket;
+        return totalCountAllItems ;
+    }
+    public int increaseTotalPriceAllBasket(){
+        totalPriceAllBasket = totalPriceAllBasket + totalPrice;
+        return totalPriceAllBasket ;
     }
 
     public void clear() {
@@ -68,7 +76,6 @@ public class Basket {
         totalWeight = 0;
         totalPriceAllBasket = 0;
         totalCountAllItems = 0;
-        totalPriceBasket = 0;
         allItemsBasket = 0;
     }
 
@@ -85,12 +92,12 @@ public class Basket {
     }
 
     public static int getTotalPriceAllBasket() {
-        totalPriceAllBasket = totalPriceAllBasket + totalPrice;
+
         return totalPriceAllBasket;
     }
 
     public static int getTotalCountItems() {
-        totalCountAllItems = allItemsBasket;
+
         return totalCountAllItems;
     }
 
