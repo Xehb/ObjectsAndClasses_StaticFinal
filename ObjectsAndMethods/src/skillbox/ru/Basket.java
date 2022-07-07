@@ -3,12 +3,12 @@ package src.skillbox.ru;
 public class Basket {
     private String items = "";
     private int limit;
-    private double totalWeight = 0;
-    private  int totalPrice = 0;
-    private  int allItemsBasket = 0;
-    private static int basketCount = 0;
-    private static int totalCountAllItems = 0;
-    private static int totalPriceAllBasket = 0;
+    private double totalWeight;
+    private int totalPrice;
+    private int allItemsBasket;
+    private static int basketCount;
+    private static int totalCountAllItems;
+    private static int totalPriceAllBasket;
 
 
     public Basket() {
@@ -25,13 +25,9 @@ public class Basket {
 
     public Basket(String name, int price, double weight) {
         this();
-        this.items = this.items + name;
-        this.totalPrice = price;
-        this.totalWeight = weight;
-        allItemsBasket = allItemsBasket + 1;
-        increaseTotalCountAllItems();
-        increaseTotalPriceAllBasket();
-        clear();
+        add(name, price, 1, weight);
+
+
     }
 
 
@@ -40,7 +36,7 @@ public class Basket {
 
     }
 
-    public int add(String name, int price, int count, double weight) {
+    public void add(String name, int price, int count, double weight) {
 
         boolean error = false;
         if (containts(name)) {
@@ -51,27 +47,30 @@ public class Basket {
         }
         if (error) {
             System.out.println("Error occured");
-            return price;
+
         }
 
         items = items + "\n" + name + " - " +
-                count + " шт.; " + " Цена за шт.(кг):  " + price + " руб. " + " Вес товара: " + weight + "КГ";
-        totalPrice = totalPrice + count * price;
+                count + " шт.; " + " Цена за шт.(кг):  " +
+                price + " руб. " + " Вес товара: " +
+                weight + "КГ";
+        int countPrice = count * price;
+        totalPrice = totalPrice + countPrice;
         totalWeight = totalWeight + count * weight;
         allItemsBasket = allItemsBasket + count;
-        increaseTotalCountAllItems();
-        increaseTotalPriceAllBasket();
-        clear();
-        return allItemsBasket;
+        increaseTotalCountAllItems(count);
+        increaseTotalPriceAllBasket(countPrice);
+
 
     }
-    public int increaseTotalCountAllItems(){
-        totalCountAllItems = totalCountAllItems +  allItemsBasket;
-        return totalCountAllItems ;
+
+    public void increaseTotalCountAllItems(int itemsCount) {
+        totalCountAllItems = totalCountAllItems + itemsCount;
+
     }
-    public int increaseTotalPriceAllBasket(){
-        totalPriceAllBasket = totalPriceAllBasket + totalPrice;
-        return totalPriceAllBasket ;
+
+    public void increaseTotalPriceAllBasket(int countPrice) {
+        totalPriceAllBasket = totalPriceAllBasket + countPrice;
     }
 
     public void clear() {

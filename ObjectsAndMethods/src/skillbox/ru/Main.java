@@ -18,17 +18,20 @@ public class Main {
 
 
         Basket mashaBasket = new Basket("стол",5000,30);
-        System.out.println(Basket.getTotalPriceAllBasket());
-        System.out.println(Basket.getTotalCountItems());
-        System.out.println(Basket.midlePriceItems());
-        System.out.println(Basket.getBasketCount());
-        System.out.println(Basket.midlePriceBasket());
 
-//        vasyaBasket.print("Корзина Васи");
-//        System.out.println();
-//        petyaBasket.print("Корзина Пети");
-//        System.out.println();
-//        mashaBasket.print("Корзина Маши");
+        vasyaBasket.print("Корзина Васи");
+        System.out.println();
+        petyaBasket.print("Корзина Пети");
+        System.out.println();
+        mashaBasket.print("Корзина Маши");
+        System.out.println();
+        System.out.println("Количество корзин: " + Basket.getBasketCount());
+        System.out.println("Стоимость всех корзин: " + Basket.getTotalPriceAllBasket());
+        System.out.println("Количество всех товаров: " + Basket.getTotalCountItems());
+        System.out.println("Средняя стоимость товара: " +Basket.midlePriceItems());
+        System.out.println("Средняя стоимость корзины: " + Basket.midlePriceBasket());
+
+
 
 
     }
