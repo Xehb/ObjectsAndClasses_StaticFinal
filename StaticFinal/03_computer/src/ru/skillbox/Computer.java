@@ -8,7 +8,7 @@ public class Computer {
     private int ram;
     private int informationStorage;
     private int screen;
-    private int keyboard;
+    private int keyboard; хуй
 
     private String cpuName(String name) {
 
